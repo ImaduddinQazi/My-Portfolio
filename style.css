@@ -370,7 +370,7 @@ article p {
 }
 
 /* Projects Section Styles */
-.about-containers {
+/* .about-containers {
     gap: 2rem;
     margin-bottom: 2rem;
     margin-top: 2rem;
@@ -433,8 +433,148 @@ article p {
     color: black;
     border-color: rgb(163, 163, 163);
     margin-top: auto;
+} */
+
+/* Project Carousel Styles */
+.project-carousel {
+    position: relative;
+    margin-bottom: 1rem;
 }
 
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.carousel-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide .project-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide .project-img.active {
+    opacity: 1;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dot.active {
+    background: #333;
+}
+
+.dot:hover {
+    background: #666;
+}
+
+/* FIX FOR ZOOM GLITCH IN PROJECTS */
+#projects .details-container.color-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 650px;
+    /* height: auto !important; Force auto height */
+}
+
+#projects .details-container.color-container .project-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0; /* Important for zoom consistency */
+}
+
+#projects .details-container.color-container .project-description {
+    flex: 1 1 auto;
+    min-height: 120px; /* Set minimum for description */
+    overflow: hidden; /* Prevent overflow issues */
+}
+
+#projects .details-container.color-container .tech-stack {
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+#projects .details-container.color-container .btn-container {
+    margin-top: auto;
+    flex-shrink: 0; /* Prevent button shrinking */
+    padding-top: 1rem;
+    border-top: 1px solid rgba(163, 163, 163, 0.3);
+}
+
+/* Prevent content jump on zoom */
+#projects .about-containers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Use fixed repeat instead of auto-fit */
+    gap: 2rem;
+    align-items: start; /* Align cards from top */
+}
+
+#projects .details-container.color-container {
+    grid-row: span 1;
+    grid-column: span 1;
+}
+
+/* Media query for zoom consistency */
+@media (max-width: 1200px) {
+    #projects .about-containers {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+}
 /* Tech Stack Styles */
 .tech-stack {
     display: flex;
@@ -462,7 +602,7 @@ article p {
 
 
 /* PROJECTS SECTION */
-#projects {
+/* #projects {
     position: relative;
 }
 
@@ -485,7 +625,7 @@ article p {
 .project-btn {
     color: black;
     border-color: rgb(163, 163, 163);
-}
+} */
 
 /* CONTACT */
 #contact {

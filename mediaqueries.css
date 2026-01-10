@@ -151,3 +151,28 @@
         font-size: 0.9rem;
     }
 }
+@media screen and (max-width: 768px) {
+    .carousel-container {
+        height: 150px;
+    }
+    
+    .carousel-btn {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
+    }
+    
+    .project-images-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .project-grid-img {
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .project-images-grid {
+        grid-template-columns: 1fr;
+    }
+}

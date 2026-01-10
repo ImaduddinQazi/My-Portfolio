@@ -188,8 +188,23 @@
         <div class="about-containers">
             <!-- E-Grievance Redressal System -->
             <div class="details-container color-container">
-                <div class="article-container">
-                    <img src="./assets/project-1.png" alt="E-Grievance System" class="project-img">
+                <div class="project-carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-slide">
+                            <img src="./assets/projects/E-Grievance/user-dash.png" alt="E-Grievance System Dashboard" class="project-img active">
+                            <img src="./assets/projects/E-Grievance/user-submit.png" alt="E-Grievance user submission" class="project-img">
+                            <img src="./assets/projects/E-Grievance/heatmap-admin.png" alt="E-Grievance Admin heatmap" class="project-img">
+                            <img src="./assets/projects/E-Grievance/reports-admin-page.png" alt="E-Grievance Admin Panel" class="project-img">
+                        </div>
+                        <button class="carousel-btn prev" onclick="changeSlide(this.parentElement, -1)">❮</button>
+                        <button class="carousel-btn next" onclick="changeSlide(this.parentElement, 1)">❯</button>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="currentSlide(this.parentElement, 0)"></span>
+                        <span class="dot" onclick="currentSlide(this.parentElement, 1)"></span>
+                        <span class="dot" onclick="currentSlide(this.parentElement, 2)"></span>
+                        <span class="dot" onclick="currentSlide(this.parentElement, 3)"></span>
+                    </div>
                 </div>
                 <h2 class="experience-sub-title project-title">E-Grievance Redressal System</h2>
                 <p class="project-description">
@@ -207,16 +222,29 @@
                     <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
                         Github
                     </button>
-                    <!-- <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
+                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
                         Live Demo
-                    </button> -->
+                    </button>
                 </div>
             </div>
 
             <!-- Garden Go Auto Courier Connect -->
             <div class="details-container color-container">
-                <div class="article-container">
-                    <img src="./assets/project-2.png" alt="Garden Go Project" class="project-img">
+                <div class="project-carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-slide">
+                            <img src="./assets/projects/garden-go-auto-courier/products-home-page.png" alt="Garden Go Homepage" class="project-img active">
+                            <img src="./assets/projects/garden-go-auto-courier/products-admin-page.png" alt="Garden Go Products admin" class="project-img">
+                            <img src="./assets/projects/garden-go-auto-courier/courier-dashboard.png" alt="Garden Go Courier page" class="project-img">
+                        </div>
+                        <button class="carousel-btn prev" onclick="changeSlide(this.parentElement, -1)">❮</button>
+                        <button class="carousel-btn next" onclick="changeSlide(this.parentElement, 1)">❯</button>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="currentSlide(this.parentElement, 0)"></span>
+                        <span class="dot" onclick="currentSlide(this.parentElement, 1)"></span>
+                        <span class="dot" onclick="currentSlide(this.parentElement, 2)"></span>
+                    </div>
                 </div>
                 <h2 class="experience-sub-title project-title">Garden Go Auto Courier Connect</h2>
                 <p class="project-description">
@@ -234,17 +262,29 @@
                     <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
                         Github
                     </button>
-                    <!-- <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
+                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
                         Live Demo
-                    </button> -->
+                    </button>
                 </div>
             </div>
 
             <!-- Data Steganography Tool -->
             <div class="details-container color-container">
+<!--                 
                 <div class="article-container">
                     <img src="./assets/project-3.png" alt="Data Steganography" class="project-img">
+                </div> -->
+                <div class="project-carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-slide">
+                            <img src="./assets/projects/data-steganography/GUI_Screenshot.png" alt="Garden Go Homepage" class="project-img active">
+                        </div>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="currentSlide(this.parentElement, 0)"></span>
+                    </div>
                 </div>
+                <!-- change -->
                 <h2 class="experience-sub-title project-title">Data Steganography Tool</h2>
                 <p class="project-description">
                     Desktop GUI tool for hiding and extracting sensitive text within PNG images using steganography. 
@@ -261,9 +301,9 @@
                     <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
                         Github
                     </button>
-                    <!-- <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
+                    <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/'">
                         Live Demo
-                    </button> -->
+                    </button>
                 </div>
             </div>
         </div>
@@ -298,6 +338,47 @@
         </nav>
         <p>Copyright &#169; 2025 Imaduddin Qazi. All Rights Reserved.</p>
     </footer>
+    <script>
+    function changeSlide(carouselContainer, direction) {
+        const slides = carouselContainer.querySelectorAll('.project-img');
+        const dots = carouselContainer.parentElement.querySelectorAll('.dot');
+        let activeIndex = 0;
+        
+        // Find current active slide
+        slides.forEach((slide, index) => {
+            if (slide.classList.contains('active')) {
+                activeIndex = index;
+            }
+        });
+        
+        // Remove active class from current slide and dot
+        slides[activeIndex].classList.remove('active');
+        dots[activeIndex].classList.remove('active');
+        
+        // Calculate new index
+        let newIndex = activeIndex + direction;
+        if (newIndex >= slides.length) newIndex = 0;
+        if (newIndex < 0) newIndex = slides.length - 1;
+        
+        // Add active class to new slide and dot
+        slides[newIndex].classList.add('active');
+        dots[newIndex].classList.add('active');
+    }
+    
+    function currentSlide(carouselDots, slideIndex) {
+        const carouselContainer = carouselDots.parentElement.querySelector('.carousel-container');
+        const slides = carouselContainer.querySelectorAll('.project-img');
+        const dots = carouselDots.querySelectorAll('.dot');
+        
+        // Remove active class from all slides and dots
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Add active class to selected slide and dot
+        slides[slideIndex].classList.add('active');
+        dots[slideIndex].classList.add('active');
+    }
+</script>
 </body>
 
 </html>
